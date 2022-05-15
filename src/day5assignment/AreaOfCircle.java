@@ -3,7 +3,9 @@ package day5assignment;
 import java.util.Scanner;
 
 public class AreaOfCircle extends PerimeterOfCircle {
-//write a program to find the area of circle:
+/*write a program to find the area of circle:
+write  a program to find the area of circle */
+	
 	public static void main(String[] args) {	
 Scanner input = new Scanner(System.in);
 System.out.println(" Enter radius:");
