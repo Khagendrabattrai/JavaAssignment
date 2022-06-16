@@ -16,6 +16,6 @@ public class QuestionNumber28 {
 			number = number / 10;
 			reverseNumber = (reverseNumber * 10) + remainder;
 		}
-		System.out.println("The reverse of " + number + "is:" + reverseNumber);// why 0 is printed here
+		System.out.println("The reverse of above number is:" + reverseNumber);// why 0 is printed here
 	}
 }
