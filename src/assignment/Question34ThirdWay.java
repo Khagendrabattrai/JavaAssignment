@@ -12,6 +12,7 @@ public class Question34ThirdWay {
 			System.out.println("Enter element of an  array:");
 			arr[i] = input.nextInt();
 			sum = sum + arr[i];
+			input.close();
 		}
 	}
 
