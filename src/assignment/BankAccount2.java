@@ -2,55 +2,54 @@ package assignment;
 
 public class BankAccount2 {
 	String accountHolderName;
-	private long accountNumber = 347;
+	private static int accountNumber = 347;
 	private double balance;
-	private double intrest;
 
 	public BankAccount2(String accountHolderName) {
+		this.accountHolderName = accountHolderName;
 		this.balance = 0;
-		this.accountNumber = accountNumber++;
+		accountNumber++;
 	}
-
-	public static void PersonalInformation(long accountNumber, double balance, String accountHolderName) {
-		System.out.println("Account Holder name:" + accountHolderName);
-		System.out.println("Account Number:" + accountNumber);
-		System.out.println("Current Balance:" + balance);
-	}
-
 
 	public BankAccount2(String accountHolderName, double balance) {
 		this.accountHolderName = accountHolderName;
 		this.balance = balance;
 		accountNumber++;
-		//PersonalInformation(accountNumber, balance, accountHolderName);
+	}
+
+	public void displayInformation() {
+		System.out.println("Account Holder name:" + accountHolderName);
+		System.out.println("Account Number:" + accountNumber);
+		System.out.println("Current Balance:" + balance);
+	}
+
+	public void withDraw(double withDrawAmount) {
+		balance = balance - withDrawAmount;
+		displayInformation();
+		System.out.println("WithDraw Amount:" + withDrawAmount);
 	}
 
 	public void withDraw(double withDrawAmount, double fees) {
-
-		double newBalance = balance - withDrawAmount - fees;
-		balance = newBalance;
-		PersonalInformation(accountNumber, balance, accountHolderName);
-		System.out.println("WithDraw Amount:"+ withDrawAmount);
-
+		balance = balance - withDrawAmount - fees;
+		displayInformation();
+		System.out.println("WithDraw Amount:" + withDrawAmount);
 	}
 
 	public void deposit(double deposit) {
-		double p, t, r;
-		p = balance + deposit;
-		t = 5;
-		r = 2;
-		double intrest = p * t * r / 100;
-		double newBalance = balance + deposit + intrest;
+		double newBalance = balance + deposit;
 		balance = newBalance;
-		System.out.println("Intrest after deposit: " + intrest);
-		PersonalInformation(accountNumber, balance, accountHolderName);
+		displayInformation();
+	}
 
+	public void deposit(double deposit, double interest) {
+		double newBalance = balance + deposit + ((balance * interest) / 100);
+		balance = newBalance;
+		displayInformation();
 	}
 
 	public static void main(String[] args) {
-
 		System.out.println("Initial Balance:");
-		BankAccount2 obj = new BankAccount2("Khagendra Bhattarai", 400);
+		BankAccount2 obj = new BankAccount2("Khagendra Bhattarai", 200);
 
 		System.out.println("==================");
 		System.out.println("Blance after withdraw:");
@@ -62,7 +61,7 @@ public class BankAccount2 {
 		obj.deposit(60);
 		System.out.println("++++++++++++++++++++++");
 		System.out.println("Initial Balance:");
-		BankAccount2 ob = new BankAccount2("Nabin", 400);
+		BankAccount2 ob = new BankAccount2("Nabin", 600);
 
 		System.out.println("==================");
 		System.out.println("Blance after withdraw:");
